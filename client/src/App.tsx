@@ -12,6 +12,7 @@ import Services from "./pages/Services";
 import Programmes from "./pages/Programmes";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Mission from "./pages/Mission";
+import Testimonials from "./pages/Testimonials";
 
 function Router() {
   return (
@@ -21,6 +22,7 @@ function Router() {
         <Route path="/about" component={About} />
         <Route path="/services" component={Services} />
         <Route path="/programmes" component={Programmes} />
+        <Route path="/testimonials" component={Testimonials} />
         <Route path="/contact" component={Contact} />
         <Route path="/mission" component={Mission} />
         <Route path="/privacy-policy" component={PrivacyPolicy} />

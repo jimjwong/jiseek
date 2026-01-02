@@ -56,7 +56,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                         : "text-muted-foreground"
                     )}
                   >
-                    About
+                    About Us
                   </Link>
                 </NavigationMenuItem>
 
@@ -144,7 +144,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 )}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                About
+                About Us
               </Link>
               
               <Link 
@@ -203,7 +203,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
           
           <div>
-            <h4 className="font-bold mb-4 text-foreground">Services</h4>
+            <h4 className="font-bold mb-4 text-foreground">Our Services</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link href="/services#training" className="hover:text-primary transition-colors">Training & Courses</Link></li>
               <li><Link href="/services#consultancy" className="hover:text-primary transition-colors">Consultancy</Link></li>
@@ -217,6 +217,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
               <li><Link href="/mission" className="hover:text-primary transition-colors">Our Mission</Link></li>
+              <li><Link href="/testimonials" className="hover:text-primary transition-colors">Testimonials</Link></li>
               <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
               <li><Link href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
             </ul>
