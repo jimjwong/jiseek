@@ -1,0 +1,48 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Build output
+dist
+
+# Development
+.git
+.gitignore
+*.log
+
+# IDE
+.vscode
+.cursor
+.idea
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Documentation
+*.md
+README.md
+ideas.md
+
+# Test files
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+
+# Terminals (Cursor specific)
+terminals
+.cursor
+
+# Misc
+coverage
+*.bak
+*.tmp
+
