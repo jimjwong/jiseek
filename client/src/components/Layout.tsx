@@ -104,9 +104,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </NavigationMenuList>
             </NavigationMenu>
             
-            <Button variant="default" className="bg-primary text-primary-foreground hover:bg-primary/90 font-serif ml-2">
-              Get Started
-            </Button>
+            <Link href="/contact">
+              <Button variant="default" className="bg-primary text-primary-foreground hover:bg-primary/90 font-serif ml-2">
+                Get Started
+              </Button>
+            </Link>
           </nav>
 
           {/* Mobile Menu Toggle */}
@@ -185,7 +187,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               >
                 Contact
               </Link>
-              <Button className="w-full bg-primary text-primary-foreground font-serif">Get Started</Button>
+              <Link href="/contact">
+                <Button className="w-full bg-primary text-primary-foreground font-serif" onClick={() => setIsMobileMenuOpen(false)}>
+                  Get Started
+                </Button>
+              </Link>
             </nav>
           </div>
         )}
