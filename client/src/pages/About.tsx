@@ -1,11 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
 
 export default function About() {
+  const credentials = [
+    "Computer Engineering background",
+    "MSc in Asset & Wealth Management",
+    "PhD research in Information Systems",
+    "Associate Lecturer since 2021",
+    "Practitioner experience across public infrastructure, finance, F&B and digital transformation"
+  ];
+
   return (
     <div className="flex flex-col w-full">
-      {/* Header */}
       <section className="relative py-24 bg-secondary/20 overflow-hidden">
         <div className="container relative z-10">
           <div className="max-w-4xl">
@@ -21,7 +29,6 @@ export default function About() {
         <div className="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-secondary/40 to-transparent hidden lg:block"></div>
       </section>
 
-      {/* Story */}
       <section className="py-24 bg-background">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -59,12 +66,26 @@ export default function About() {
                   Jim Wong leads Jiseek as Founder & Principal, AI Transformation. His work spans technology, analytics, AI, education and organisational transformation, allowing Jiseek to bridge the gap between executive intent and practical execution.
                 </p>
               </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                {credentials.map((item, i) => (
+                  <div key={item} className={`rounded-xl border border-border/60 bg-secondary/20 p-4 ${i === credentials.length - 1 ? "sm:col-span-2" : ""}`}>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-4 h-4 text-accent mt-0.5 shrink-0" />
+                      <span className="text-sm font-medium text-foreground">{item}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <Link href="/work">
+                <Button variant="outline" className="font-serif">View Experience & Evidence</Button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* What we believe */}
       <section className="py-24 bg-primary text-primary-foreground">
         <div className="container">
           <div className="max-w-3xl mb-14">
@@ -89,7 +110,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Mission & Vision */}
       <section className="py-24 bg-background">
         <div className="container grid grid-cols-1 md:grid-cols-2 gap-12">
           <Card className="border-border/50 shadow-sm">
@@ -111,7 +131,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Principles */}
       <section className="py-24 bg-secondary/30">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -139,7 +158,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="py-24 bg-background">
         <div className="container text-center">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6">Where could AI materially improve work in your organisation?</h2>
