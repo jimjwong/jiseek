@@ -26,14 +26,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-5">
+          <nav className="hidden md:flex items-center gap-4">
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <Link
                     href="/"
                     className={cn(
-                      "inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:text-primary",
+                      "inline-flex h-9 w-max items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-primary",
                       isActive("/") ? "text-primary font-bold" : "text-muted-foreground"
                     )}
                   >
@@ -45,7 +45,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <Link
                     href="/services"
                     className={cn(
-                      "inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:text-primary",
+                      "inline-flex h-9 w-max items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-primary",
                       isActive("/services") ? "text-primary font-bold" : "text-muted-foreground"
                     )}
                   >
@@ -55,9 +55,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
                 <NavigationMenuItem>
                   <Link
+                    href="/work"
+                    className={cn(
+                      "inline-flex h-9 w-max items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-primary",
+                      isActive("/work") ? "text-primary font-bold" : "text-muted-foreground"
+                    )}
+                  >
+                    Experience
+                  </Link>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <Link
                     href="/programmes"
                     className={cn(
-                      "inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:text-primary",
+                      "inline-flex h-9 w-max items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-primary",
                       isActive("/programmes") ? "text-primary font-bold" : "text-muted-foreground"
                     )}
                   >
@@ -69,7 +81,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <Link
                     href="/about"
                     className={cn(
-                      "inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:text-primary",
+                      "inline-flex h-9 w-max items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-primary",
                       isActive("/about") ? "text-primary font-bold" : "text-muted-foreground"
                     )}
                   >
@@ -81,7 +93,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <Link
                     href="/contact"
                     className={cn(
-                      "inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:text-primary",
+                      "inline-flex h-9 w-max items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-primary",
                       isActive("/contact") ? "text-primary font-bold" : "text-muted-foreground"
                     )}
                   >
@@ -113,6 +125,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               {[
                 ["Home", "/"],
                 ["AI Transformation", "/services"],
+                ["Experience & Evidence", "/work"],
                 ["Capability Programmes", "/programmes"],
                 ["About", "/about"],
                 ["Contact", "/contact"],
@@ -165,12 +178,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
 
           <div>
-            <h4 className="font-bold mb-4 text-foreground">Capability & Company</h4>
+            <h4 className="font-bold mb-4 text-foreground">Evidence & Capability</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><Link href="/work" className="hover:text-primary transition-colors">Experience & Evidence</Link></li>
               <li><Link href="/services#academy" className="hover:text-primary transition-colors">AI Transformation Academy</Link></li>
               <li><Link href="/programmes" className="hover:text-primary transition-colors">Capability Programmes</Link></li>
               <li><Link href="/about" className="hover:text-primary transition-colors">About Jiseek</Link></li>
-              <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
               <li><Link href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
             </ul>
           </div>
