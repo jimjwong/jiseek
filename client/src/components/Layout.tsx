@@ -155,6 +155,31 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
       </header>
 
+      {location === "/" && (
+        <section className="border-b border-border/50 bg-secondary/20">
+          <div className="container py-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+              {[
+                ["500+", "Professionals trained"],
+                ["50+", "Organisations served"],
+                ["4.9/5", "Average learner rating"],
+                ["95%", "Would recommend"],
+              ].map(([number, label]) => (
+                <div key={label} className="flex items-baseline justify-center gap-2">
+                  <span className="font-serif font-bold text-primary text-lg md:text-xl">{number}</span>
+                  <span className="text-xs md:text-sm text-muted-foreground">{label}</span>
+                </div>
+              ))}
+            </div>
+            <div className="text-center mt-2">
+              <Link href="/work" className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground hover:text-primary transition-colors">
+                Training & capability-building track record →
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
       <main className="flex-1 w-full">{children}</main>
 
       <footer className="border-t border-border bg-muted/30 py-12">
