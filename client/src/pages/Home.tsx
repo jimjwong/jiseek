@@ -14,9 +14,15 @@ export default function Home() {
     "Workforce Impact",
   ];
 
+  const proofPoints = [
+    "Computer Engineering background with business and financial-management training",
+    "PhD research in Information Systems focused on AI and digital technologies",
+    "Associate Lecturer experience since 2021 across AI, analytics, Python and related subjects",
+    "Practitioner experience spanning public infrastructure, finance, F&B and digital transformation",
+  ];
+
   return (
     <div className="flex flex-col w-full overflow-hidden">
-      {/* Hero */}
       <section className="relative w-full min-h-[90vh] flex items-center bg-background overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
           <div className="absolute top-[-20%] right-[-10%] w-[70vw] h-[70vw] rounded-full bg-primary/10 blur-[100px]" />
@@ -76,7 +82,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Problem */}
       <section className="py-24 bg-secondary/30 relative">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center space-y-6 mb-16">
@@ -111,7 +116,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Framework */}
       <section className="py-24 bg-background">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 items-start">
@@ -141,7 +145,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Diagnostic / Opportunity Map */}
       <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <img src="/assets/complexity-to-clarity.png" className="w-full h-full object-cover mix-blend-overlay" alt="Background texture" />
@@ -191,7 +194,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services */}
       <section className="py-24 bg-background relative overflow-hidden">
         <div className="container">
           <div className="max-w-3xl mb-14">
@@ -234,8 +236,40 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Who we help */}
       <section className="py-24 bg-secondary/30">
+        <div className="container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-5">
+              <div className="text-sm font-semibold uppercase tracking-[0.16em] text-accent mb-3">Experience behind the work</div>
+              <h2 className="text-3xl md:text-5xl font-serif font-bold text-primary mb-5">Led by a practitioner who works across technology, business and learning.</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-7">
+                Jiseek is led by Jim Wong, Founder & Principal, AI Transformation. His background combines engineering, business, higher education, AI and transformation—useful when the problem crosses leadership, workflows, technology and people.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Link href="/work">
+                  <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-serif rounded-full px-7">Experience & Evidence</Button>
+                </Link>
+                <Link href="/about">
+                  <Button variant="outline" className="font-serif rounded-full px-7">About Jim & Jiseek</Button>
+                </Link>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {proofPoints.map((item, i) => (
+                <div key={item} className="rounded-2xl border border-border/60 bg-background p-6 shadow-sm">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm shrink-0">{i + 1}</div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{item}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-background">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">Built for organisations that need AI to work in the real world.</h2>
@@ -259,7 +293,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Philosophy */}
       <section className="py-28 bg-background">
         <div className="container max-w-4xl text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent mb-5">Mindful transformation remains our principle</p>
@@ -269,7 +302,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="py-24 bg-background pt-0">
         <div className="container">
           <div className="bg-secondary/30 rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden">
