@@ -1,9 +1,43 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Bot, BriefcaseBusiness, Building2, CheckCircle2, GraduationCap, Gauge, LineChart, ShieldCheck } from "lucide-react";
+import { ArrowRight, Bot, BriefcaseBusiness, Building2, CheckCircle2, GraduationCap, Gauge, LineChart, Quote, ShieldCheck, Star } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Work() {
+  const trackRecord = [
+    { number: "500+", label: "Professionals trained" },
+    { number: "50+", label: "Organisations served" },
+    { number: "4.9/5", label: "Average learner rating" },
+    { number: "95%", label: "Would recommend" },
+  ];
+
+  const testimonials = [
+    {
+      name: "Alex T. — Placeholder",
+      role: "Operations Manager — Sample profile",
+      quote: "Jim made AI practical for our team. The session moved quickly from concepts into workflows we could immediately recognise and improve.",
+      context: "AI & Productivity Programme",
+    },
+    {
+      name: "Priya N. — Placeholder",
+      role: "Learning & Development Lead — Sample profile",
+      quote: "What stood out was the connection between technology, business outcomes and people. It was not simply a tour of AI tools.",
+      context: "Enterprise GenAI Programme",
+    },
+    {
+      name: "Marcus L. — Placeholder",
+      role: "Transformation Manager — Sample profile",
+      quote: "The facilitation helped us identify where AI could genuinely improve work instead of creating more disconnected experiments.",
+      context: "AI Transformation Workshop",
+    },
+    {
+      name: "Sarah K. — Placeholder",
+      role: "Senior Analyst — Sample profile",
+      quote: "Complex ideas were explained clearly and tied back to real work. The programme gave our team confidence to apply the concepts responsibly.",
+      context: "Data & AI Capability Programme",
+    },
+  ];
+
   const experience = [
     {
       icon: <Building2 className="w-7 h-7" />,
@@ -73,8 +107,25 @@ export default function Work() {
           <div className="text-accent font-semibold tracking-wide mb-4">EXPERIENCE & EVIDENCE</div>
           <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6">Built on practice, not AI theatre.</h1>
           <p className="text-xl opacity-90 leading-relaxed max-w-3xl">
-            Jiseek combines technical understanding, operating experience, teaching and transformation work. We publish evidence conservatively: real experience first, measurable outcomes where they can be substantiated, and client names or metrics only with permission.
+            Jiseek combines technical understanding, operating experience, teaching and transformation work. We distinguish between our established capability-building track record and the measurable business evidence we build through transformation engagements.
           </p>
+        </div>
+      </section>
+
+      <section className="py-14 bg-secondary/30 border-b border-border/50">
+        <div className="container">
+          <div className="text-center mb-8">
+            <div className="text-sm font-semibold uppercase tracking-[0.16em] text-accent mb-2">Training & capability-building track record</div>
+            <p className="text-sm text-muted-foreground">Existing evidence of delivery scale, learner experience and organisational exposure.</p>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+            {trackRecord.map((stat) => (
+              <div key={stat.label} className="rounded-2xl bg-background border border-border/60 p-6 text-center shadow-sm">
+                <div className="text-3xl md:text-4xl font-serif font-bold text-primary mb-2">{stat.number}</div>
+                <div className="text-sm text-muted-foreground">{stat.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -131,6 +182,40 @@ export default function Work() {
 
       <section className="py-24 bg-background">
         <div className="container">
+          <div className="max-w-3xl mx-auto text-center mb-14">
+            <div className="text-sm font-semibold uppercase tracking-[0.16em] text-accent mb-3">What learners say</div>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold text-primary mb-4">Capability that feels relevant to the work.</h2>
+            <p className="text-lg text-muted-foreground">These cards are layout placeholders only. They will be replaced with actual learner testimonials and names supplied by Jiseek before launch.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {testimonials.map((testimonial) => (
+              <Card key={testimonial.name} className="border-border/50 bg-card shadow-sm relative overflow-hidden">
+                <CardContent className="p-7 md:p-8">
+                  <div className="flex items-center justify-between gap-4 mb-5">
+                    <div className="inline-flex rounded-full bg-amber-100 text-amber-900 px-3 py-1 text-xs font-semibold">
+                      PLACEHOLDER — REPLACE BEFORE LAUNCH
+                    </div>
+                    <div className="flex gap-1" aria-label="Sample five-star layout">
+                      {[0, 1, 2, 3, 4].map((star) => <Star key={star} className="w-4 h-4 text-primary fill-primary" />)}
+                    </div>
+                  </div>
+                  <Quote className="w-8 h-8 text-accent mb-4" />
+                  <p className="text-lg text-foreground leading-relaxed mb-6">“{testimonial.quote}”</p>
+                  <div className="border-t border-border pt-5">
+                    <div className="font-semibold text-primary">{testimonial.name}</div>
+                    <div className="text-sm text-muted-foreground">{testimonial.role}</div>
+                    <div className="text-xs text-muted-foreground mt-2">Sample context: {testimonial.context}</div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-secondary/30">
+        <div className="container">
           <div className="max-w-3xl mb-14">
             <div className="text-sm font-semibold uppercase tracking-[0.16em] text-accent mb-3">Engagement patterns</div>
             <h2 className="text-3xl md:text-5xl font-serif font-bold text-primary mb-4">What transformation work looks like in practice.</h2>
@@ -139,7 +224,7 @@ export default function Work() {
 
           <div className="space-y-6">
             {engagementPatterns.map((item, i) => (
-              <div key={item.sector} className="grid grid-cols-1 lg:grid-cols-12 gap-6 rounded-3xl border border-border/60 bg-card p-7 md:p-9 shadow-sm">
+              <div key={item.sector} className="grid grid-cols-1 lg:grid-cols-12 gap-6 rounded-3xl border border-border/60 bg-background p-7 md:p-9 shadow-sm">
                 <div className="lg:col-span-3">
                   <div className="w-9 h-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold mb-4">{i + 1}</div>
                   <h3 className="font-serif font-bold text-xl text-primary">{item.sector}</h3>
