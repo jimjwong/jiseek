@@ -1,202 +1,92 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Brain, CheckCircle2, Layers, Users } from "lucide-react";
+import { ArrowRight, Compass, Layers, Users } from "lucide-react";
 import { Link } from "wouter";
+
+const services = [
+  { icon: Compass, title: "Find your starting point", description: "Prioritise AI opportunities around your workflows, readiness and business value.", label: "AI Opportunity Diagnostic", href: "/services#diagnostic" },
+  { icon: Layers, title: "Put AI to work", description: "Prototype practical solutions and redesign the work around them.", label: "Transformation Sprint", href: "/services#sprint" },
+  { icon: Users, title: "Build team confidence", description: "Help your people apply AI responsibly in their everyday work.", label: "Capability Programmes", href: "/programmes" },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col w-full overflow-hidden">
-      {/* Hero Section - Asymmetric Balance */}
-      <section className="relative w-full min-h-[90vh] flex items-center bg-background overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-           <div className="absolute top-[-20%] right-[-10%] w-[70vw] h-[70vw] rounded-full bg-primary/10 blur-[100px]" />
-           <div className="absolute bottom-[-20%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-secondary/30 blur-[80px]" />
-        </div>
-        
-        <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-5 space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-1000">
-            <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-sm font-medium text-primary">
-              <span className="flex h-2 w-2 rounded-full bg-accent mr-2"></span>
-              Mindful Digital Transformation
-            </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold leading-[1.1] tracking-tight text-primary">
-              Complexity into <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Clarity.</span>
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-md">
-              Empowering organizations in Asia to leverage data, AI, and automation—grounded in ethical, human-centered principles.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Link href="/services">
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-serif px-8 h-12 rounded-full text-lg shadow-lg shadow-primary/20 transition-all hover:scale-105">
-                  Explore Services
-                </Button>
-              </Link>
-              <Link href="/about">
-                <Button variant="outline" size="lg" className="border-primary/20 text-primary hover:bg-primary/5 font-serif px-8 h-12 rounded-full text-lg">
-                  Our Philosophy
-                </Button>
-              </Link>
-            </div>
+    <div className="w-full overflow-hidden">
+      <section className="bg-background">
+        <div className="container grid items-center gap-10 py-12 md:py-20 lg:grid-cols-2 lg:gap-16">
+          <div className="space-y-6">
+            <p className="text-sm font-semibold tracking-widest uppercase text-accent">Jiseek AI Transformation</p>
+            <h1 className="max-w-2xl text-4xl sm:text-5xl lg:text-6xl font-serif font-bold leading-[1.08] tracking-tight text-primary">Make AI work for your business.</h1>
+            <p className="max-w-lg text-lg md:text-xl text-muted-foreground leading-relaxed">Turn promising experiments into practical workflows, measurable value and confident teams.</p>
+            <Button asChild size="lg" className="h-auto min-h-12 max-w-full whitespace-normal rounded-full px-7 py-3 text-base">
+              <Link href="/contact">Book a Diagnostic <ArrowRight className="ml-2 h-4 w-4 shrink-0" /></Link>
+            </Button>
           </div>
-          
-          <div className="lg:col-span-7 relative h-[500px] lg:h-[700px] w-full animate-in fade-in zoom-in duration-1000 delay-200">
-            <div className="absolute inset-0 rounded-[2rem] overflow-hidden shadow-2xl shadow-primary/10">
-              <img 
-                src="/assets/hero-clarity.png" 
-                alt="Abstract visualization of complexity turning into clarity" 
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-[20s] ease-linear"
-              />
-              <div className="lens-overlay"></div>
-            </div>
-            
-            {/* Floating Cards - Parallax feel */}
-            <div className="absolute bottom-16 left-4 lg:bottom-24 lg:left-8 bg-card p-6 rounded-xl shadow-xl border border-border/50 max-w-xs hidden md:block animate-in fade-in slide-in-from-right-8 duration-1000 delay-500">
-              <div className="flex items-center gap-4 mb-3">
-                <div className="p-2 bg-accent/10 rounded-full text-accent">
-                  <Brain size={24} />
-                </div>
-                <h3 className="font-serif font-bold text-lg">Mindful AI</h3>
-              </div>
-              <p className="text-sm text-muted-foreground">Use AI with intention. Right intention brings right results.</p>
-            </div>
+          <div className="relative">
+            <img src="/assets/hero-clarity.png" alt="Abstract illustration of complexity becoming clarity" className="h-[280px] sm:h-[360px] lg:h-[460px] w-full rounded-[2rem] object-cover shadow-xl shadow-primary/10" />
+            <p className="absolute bottom-5 left-5 right-5 rounded-xl bg-background/95 px-5 py-4 text-sm font-medium text-primary shadow-sm">Start with the work. Build around the people.</p>
           </div>
         </div>
       </section>
 
-      {/* Mission Section - Content First */}
-      <section className="py-24 bg-secondary/30 relative">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center space-y-6 mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary">Why Jiseek?</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              In a fast-changing digital landscape, we help you cut through the noise. We blend deep technical expertise with the heart of a mission-driven education brand.
-            </p>
+      <section aria-label="Training and capability-building track record" className="border-y border-border/50 bg-secondary/20">
+        <div className="container py-8 md:py-10">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4">
+            {[["500+", "Professionals trained"], ["50+", "Organisations served"], ["4.9/5", "Average learner rating"], ["95%", "Would recommend"]].map(([value, label]) => (
+              <div key={label} className="text-center space-y-2">
+                <p className="text-3xl md:text-4xl font-serif font-bold text-primary">{value}</p>
+                <p className="text-sm text-muted-foreground">{label}</p>
+              </div>
+            ))}
           </div>
+          <div className="mt-6 text-center"><Link href="/work" className="text-sm text-primary underline underline-offset-4">Our training track record</Link></div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <section className="py-16 md:py-24">
+        <div className="container">
+          <div className="max-w-xl mb-10"><h2 className="text-3xl md:text-4xl font-serif font-bold text-primary">Move from possibility to practice.</h2></div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {services.map(({ icon: Icon, title, description, label, href }) => (
+              <div key={title} className="flex flex-col rounded-2xl border border-border/60 bg-card p-7 md:p-8">
+                <Icon aria-hidden="true" className="mb-8 h-8 w-8 text-accent" />
+                <h3 className="text-2xl font-serif font-bold text-primary mb-4">{title}</h3>
+                <p className="text-muted-foreground leading-relaxed mb-8">{description}</p>
+                <Link href={href} className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline underline-offset-4">{label}<ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0" /></Link>
+              </div>
+            ))}
+          </div>
+          <Link href="/services" className="mt-8 inline-flex items-center gap-2 font-medium text-primary hover:underline underline-offset-4">Explore all services <ArrowRight aria-hidden="true" className="h-4 w-4" /></Link>
+        </div>
+      </section>
+
+      <section className="bg-secondary/30 py-16 md:py-24">
+        <div className="container grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-widest text-accent mb-4">Selected experience</p>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-5">Grounded in real work.</h2>
+            <p className="text-muted-foreground leading-relaxed mb-7">Technical understanding, operating experience and practical teaching come together.</p>
+            <Link href="/work" className="inline-flex items-center gap-2 font-medium text-primary hover:underline underline-offset-4">Explore experience & evidence <ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0" /></Link>
+          </div>
+          <div className="divide-y divide-border">
             {[
-              {
-                icon: <Layers className="w-10 h-10 text-accent" />,
-                title: "Hybrid Expertise",
-                desc: "Fusing data science, ML, and automation with leadership coaching and ethical mindfulness."
-              },
-              {
-                icon: <CheckCircle2 className="w-10 h-10 text-accent" />,
-                title: "Pragmatic + Ethical",
-                desc: "Practical solutions anchored in ethics, people, and long-term value—not just tech for tech's sake."
-              },
-              {
-                icon: <Users className="w-10 h-10 text-accent" />,
-                title: "Asia-Centric",
-                desc: "Global best practices tailored for the regional business and cultural context of Singapore and Asia."
-              }
-            ].map((feature, i) => (
-              <Card key={i} className="border-none shadow-lg bg-card/50 backdrop-blur-sm hover:bg-card transition-colors duration-300 group">
-                <CardHeader>
-                  <div className="mb-4 p-3 w-fit rounded-2xl bg-secondary group-hover:bg-accent/10 transition-colors duration-300">
-                    {feature.icon}
-                  </div>
-                  <CardTitle className="font-serif text-xl">{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base leading-relaxed">
-                    {feature.desc}
-                  </CardDescription>
-                </CardContent>
-              </Card>
+              ["01", "Public infrastructure", "Practitioner experience in infrastructure and operations, alongside AI capability building for public-sector teams."],
+              ["02", "Applied learning", "Associate Lecturer since 2021, teaching AI, Python and analytics."],
+              ["03", "Business transformation", "Management and transformation experience across finance, F&B and digital platforms."],
+            ].map(([number, title, description]) => (
+              <div key={title} className="flex gap-5 py-7 first:pt-0 last:pb-0">
+                <span className="pt-1 text-sm font-semibold text-accent" aria-hidden="true">{number}</span>
+                <div><h3 className="text-xl font-serif font-bold text-primary mb-2">{title}</h3><p className="text-muted-foreground leading-relaxed">{description}</p></div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Services Preview - Overlapping Elements */}
-      <section className="py-24 bg-background relative overflow-hidden">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="relative order-2 lg:order-1">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
-                <img 
-                  src="/assets/human-tech-interaction.png" 
-                  alt="Human interacting with ethical technology" 
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
-              </div>
-              <div className="absolute -top-12 -right-12 w-64 h-64 bg-secondary rounded-full blur-3xl opacity-50 -z-10"></div>
-              <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-accent/20 rounded-full blur-3xl opacity-50 -z-10"></div>
-            </div>
-            
-            <div className="space-y-8 order-1 lg:order-2">
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary">
-                Our Core Offerings
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                From structured training to strategic advisory, we provide end-to-end support to help you navigate digital disruption with integrity.
-              </p>
-              
-              <div className="space-y-6">
-                {[
-                  "Public & Corporate Training Courses",
-                  "Consultancy & Strategic Advisory",
-                  "Thought Leadership & Keynotes",
-                  "Coaching & Capacity Building"
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-4 p-4 rounded-lg hover:bg-secondary/50 transition-colors cursor-default">
-                    <div className="h-2 w-2 rounded-full bg-accent"></div>
-                    <span className="text-lg font-medium text-foreground">{item}</span>
-                  </div>
-                ))}
-              </div>
-              
-              <Link href="/services">
-                <Button variant="link" className="text-primary font-bold text-lg p-0 hover:text-accent transition-colors group">
-                  View All Services <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Quote / Vision Section */}
-      <section className="py-32 bg-primary text-primary-foreground relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-           <img src="/assets/complexity-to-clarity.png" className="w-full h-full object-cover mix-blend-overlay" alt="Background texture" />
-        </div>
-        <div className="container relative z-10 text-center">
-          <blockquote className="max-w-4xl mx-auto space-y-8">
-            <p className="text-3xl md:text-5xl font-serif font-bold leading-tight">
-              "What good is efficiency or AI if people and purpose are lost?"
-            </p>
-            <footer className="text-xl md:text-2xl font-light opacity-90">
-              — Jiseek Philosophy
-            </footer>
-          </blockquote>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 bg-background">
-        <div className="container">
-          <div className="bg-secondary/30 rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-               <div className="absolute top-[-50%] left-[20%] w-[600px] h-[600px] bg-white/40 rounded-full blur-[100px]"></div>
-            </div>
-            
-            <div className="relative z-10 max-w-2xl mx-auto space-y-8">
-              <h2 className="text-4xl font-serif font-bold text-primary">Ready to Transform?</h2>
-              <p className="text-lg text-muted-foreground">
-                Let's build clarity, adopt the right tools, and embed sustainable change in your organization.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/contact">
-                  <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-serif px-10 h-14 rounded-full text-lg shadow-xl">
-                    Get in Touch
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
+      <section className="container py-16 md:py-24">
+        <div className="rounded-[2rem] bg-primary px-6 py-12 md:p-16 text-center text-primary-foreground">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-5">Where could AI make a difference?</h2>
+          <p className="mx-auto max-w-lg text-lg leading-relaxed opacity-90 mb-8">Start with a conversation about your priorities and the work you want to improve.</p>
+          <Button asChild size="lg" className="h-auto min-h-12 max-w-full whitespace-normal rounded-full bg-accent text-accent-foreground hover:bg-accent/90 px-7 py-3 text-base"><Link href="/contact">Discuss your priorities <ArrowRight className="ml-2 h-4 w-4 shrink-0" /></Link></Button>
         </div>
       </section>
     </div>

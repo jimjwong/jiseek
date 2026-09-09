@@ -13,89 +13,88 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const navItems = [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Services", href: "/services" },
-    { label: "Contact", href: "/contact" },
-  ];
+  const isActive = (href: string) => location === href;
 
   return (
     <div className="min-h-screen flex flex-col bg-background font-sans text-foreground selection:bg-accent selection:text-accent-foreground">
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-md">
         <div className="container flex h-20 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
+          <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity">
             <img src="/assets/logo/jiseek-logo.png" alt="Jiseek" className="h-10" />
+            <span className="hidden lg:inline text-xs font-medium tracking-wide text-muted-foreground border-l border-border pl-3">
+              AI Transformation
+            </span>
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-4">
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <Link 
+                  <Link
                     href="/"
                     className={cn(
-                      "inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:text-primary",
-                      location === "/"
-                        ? "text-primary font-bold"
-                        : "text-muted-foreground"
+                      "inline-flex h-9 w-max items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-primary",
+                      isActive("/") ? "text-primary font-bold" : "text-muted-foreground"
                     )}
                   >
                     Home
                   </Link>
                 </NavigationMenuItem>
-                
-                <NavigationMenuItem>
-                  <Link 
-                    href="/about"
-                    className={cn(
-                      "inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:text-primary",
-                      location === "/about"
-                        ? "text-primary font-bold"
-                        : "text-muted-foreground"
-                    )}
-                  >
-                    About Us
-                  </Link>
-                </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <Link 
+                  <Link
                     href="/services"
                     className={cn(
-                      "inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:text-primary",
-                      location === "/services"
-                        ? "text-primary font-bold"
-                        : "text-muted-foreground"
+                      "inline-flex h-9 w-max items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-primary",
+                      isActive("/services") ? "text-primary font-bold" : "text-muted-foreground"
                     )}
                   >
-                    Our Services
+                    AI Transformation
                   </Link>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <Link 
+                  <Link
+                    href="/work"
+                    className={cn(
+                      "inline-flex h-9 w-max items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-primary",
+                      isActive("/work") ? "text-primary font-bold" : "text-muted-foreground"
+                    )}
+                  >
+                    Experience
+                  </Link>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <Link
                     href="/programmes"
                     className={cn(
-                      "inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:text-primary",
-                      location === "/programmes"
-                        ? "text-primary font-bold"
-                        : "text-muted-foreground"
+                      "inline-flex h-9 w-max items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-primary",
+                      isActive("/programmes") ? "text-primary font-bold" : "text-muted-foreground"
                     )}
                   >
-                    Programmes
+                    Capability Programmes
                   </Link>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <Link 
+                  <Link
+                    href="/about"
+                    className={cn(
+                      "inline-flex h-9 w-max items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-primary",
+                      isActive("/about") ? "text-primary font-bold" : "text-muted-foreground"
+                    )}
+                  >
+                    About
+                  </Link>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <Link
                     href="/contact"
                     className={cn(
-                      "inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:text-primary",
-                      location === "/contact"
-                        ? "text-primary font-bold"
-                        : "text-muted-foreground"
+                      "inline-flex h-9 w-max items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-primary",
+                      isActive("/contact") ? "text-primary font-bold" : "text-muted-foreground"
                     )}
                   >
                     Contact
@@ -103,93 +102,52 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
-            
+
             <Link href="/contact">
               <Button variant="default" className="bg-primary text-primary-foreground hover:bg-primary/90 font-serif ml-2">
-                Get Started
+                Book a Diagnostic
               </Button>
             </Link>
           </nav>
 
-          {/* Mobile Menu Toggle */}
           <button
             className="md:hidden p-2 text-foreground"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle navigation menu"
           >
             {isMobileMenuOpen ? <X /> : <Menu />}
           </button>
         </div>
 
-        {/* Mobile Nav */}
         {isMobileMenuOpen && (
           <div className="md:hidden border-t border-border p-4 bg-background absolute w-full shadow-lg">
             <nav className="flex flex-col gap-4">
-              <Link 
-                href="/"
-                className={cn(
-                  "text-lg font-medium transition-colors hover:text-primary",
-                  location === "/"
-                    ? "text-primary font-bold"
-                    : "text-muted-foreground"
-                )}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Home
-              </Link>
-              <Link 
-                href="/about"
-                className={cn(
-                  "text-lg font-medium transition-colors hover:text-primary",
-                  location === "/about"
-                    ? "text-primary font-bold"
-                    : "text-muted-foreground"
-                )}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                About Us
-              </Link>
-              
-              <Link 
-                href="/services"
-                className={cn(
-                  "text-lg font-medium transition-colors hover:text-primary",
-                  location === "/services"
-                    ? "text-primary font-bold"
-                    : "text-muted-foreground"
-                )}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Our Services
-              </Link>
-
-              <Link 
-                href="/programmes"
-                className={cn(
-                  "text-lg font-medium transition-colors hover:text-primary",
-                  location === "/programmes"
-                    ? "text-primary font-bold"
-                    : "text-muted-foreground"
-                )}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Programmes
-              </Link>
-
-              <Link 
-                href="/contact"
-                className={cn(
-                  "text-lg font-medium transition-colors hover:text-primary",
-                  location === "/contact"
-                    ? "text-primary font-bold"
-                    : "text-muted-foreground"
-                )}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Contact
-              </Link>
+              {[
+                ["Home", "/"],
+                ["AI Transformation", "/services"],
+                ["Experience & Evidence", "/work"],
+                ["Capability Programmes", "/programmes"],
+                ["About", "/about"],
+                ["Contact", "/contact"],
+              ].map(([label, href]) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className={cn(
+                    "text-lg font-medium transition-colors hover:text-primary",
+                    isActive(href) ? "text-primary font-bold" : "text-muted-foreground"
+                  )}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {label}
+                </Link>
+              ))}
               <Link href="/contact">
-                <Button className="w-full bg-primary text-primary-foreground font-serif" onClick={() => setIsMobileMenuOpen(false)}>
-                  Get Started
+                <Button
+                  className="w-full bg-primary text-primary-foreground font-serif"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Book a Diagnostic
                 </Button>
               </Link>
             </nav>
@@ -197,51 +155,58 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
       </header>
 
+
       <main className="flex-1 w-full">{children}</main>
 
       <footer className="border-t border-border bg-muted/30 py-12">
         <div className="container grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <img src="/assets/logo/jiseek-logo.png" alt="Jiseek" className="h-8 mb-2" />
+            <p className="text-sm font-medium text-primary">AI Transformation</p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Empowering organizations in Asia to transform complexity into clarity through mindful, ethical, and human-centered digital strategies.
+              Helping organisations move from AI experiments to measurable work transformation through strategy, workflow redesign, implementation and capability building.
             </p>
           </div>
-          
+
           <div>
-            <h4 className="font-bold mb-4 text-foreground">Our Services</h4>
+            <h4 className="font-bold mb-4 text-foreground">AI Transformation</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link href="/services#training" className="hover:text-primary transition-colors">Training & Courses</Link></li>
-              <li><Link href="/services#consultancy" className="hover:text-primary transition-colors">Consultancy</Link></li>
-              <li><Link href="/services#workshops" className="hover:text-primary transition-colors">Workshops</Link></li>
-              <li><Link href="/services#speaking" className="hover:text-primary transition-colors">Speaking</Link></li>
+              <li><Link href="/services#diagnostic" className="hover:text-primary transition-colors">AI Opportunity Diagnostic</Link></li>
+              <li><Link href="/services#sprint" className="hover:text-primary transition-colors">Transformation Sprint</Link></li>
+              <li><Link href="/services#programme" className="hover:text-primary transition-colors">Transformation Programme</Link></li>
+              <li><Link href="/services#advisory" className="hover:text-primary transition-colors">AI Transformation Advisory</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold mb-4 text-foreground">Company</h4>
+            <h4 className="font-bold mb-4 text-foreground">Evidence & Capability</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link href="/mission" className="hover:text-primary transition-colors">Our Mission</Link></li>
-              <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
+              <li><Link href="/work" className="hover:text-primary transition-colors">Experience & Evidence</Link></li>
+              <li><Link href="/services#academy" className="hover:text-primary transition-colors">AI Transformation Academy</Link></li>
+              <li><Link href="/programmes" className="hover:text-primary transition-colors">Capability Programmes</Link></li>
+              <li><Link href="/about" className="hover:text-primary transition-colors">About Jiseek</Link></li>
               <li><Link href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold mb-4 text-foreground">Connect</h4>
+            <h4 className="font-bold mb-4 text-foreground">Start Here</h4>
             <p className="text-sm text-muted-foreground mb-4">
-              Join our community of mindful changemakers.
+              Find where AI can create measurable value in your organisation.
             </p>
-            <div className="flex gap-4">
-              <a 
-                href="https://linkedin.com/company/jiseek" 
-                target="_blank" 
+            <Link href="/contact">
+              <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-serif mb-5">
+                Book a Diagnostic
+              </Button>
+            </Link>
+            <div>
+              <a
+                href="https://linkedin.com/company/jiseek"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 bg-muted-foreground/20 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors cursor-pointer"
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
               >
-                <span className="sr-only">LinkedIn</span>
-                in
+                Follow Jiseek on LinkedIn
               </a>
             </div>
           </div>
@@ -253,3 +218,4 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
+
